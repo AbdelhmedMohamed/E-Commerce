@@ -1,0 +1,40 @@
+
+
+
+<div class="container aaa mb-4">
+
+   
+  
+  <input type="search" [(ngModel)]="inputvalue" class="w-50 form-control my-5 m-auto"  placeholder="search...">
+  
+      <div class="row">
+          <div *ngFor="let product of allProducts | search: inputvalue " class="col-md-2 mb-4" >
+              <div  class="product">
+      
+               <div [routerLink]="['/productDetails' ,product._id]">
+                  <img class="w-100" [src]="product.imageCover" >
+                  
+                  <span class="fa-sm text-main">{{product.category.name}}</span>
+                  <h1 class="h5 fw-bold">{{product.title.split(" ").slice(0,2).join(" ")}}</h1>
+      
+                  <div class="d-flex justify-content-between">
+                      <span>{{product.price}}EGP</span>
+      
+                      <span><i class="fa-solid fa-star rating-color"></i>{{product.ratingsAverage}}</span>
+      
+                  </div>
+               </div>
+  
+                    <button (click)="addToCartBTN(product._id)" class="btn bg-main d-block text-white w-100">Add To Cart</button>
+      
+              </div>
+      
+          </div>
+      
+      </div>
+  
+  
+  
+  
+  </div>
+  

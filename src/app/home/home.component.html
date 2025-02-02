@@ -1,0 +1,65 @@
+
+
+
+<div class="container my-3">
+
+  <div class="row g-0 mt-5">
+    <div class="col-md-9 ">
+
+       
+        <owl-carousel-o [options]="customOptions">
+      
+          <ng-container *ngFor="let oneProd of allProducts">
+            <ng-template carouselSlide >
+              <img class="w-100" height="400" [src]="oneProd?.imageCover" >
+            </ng-template>
+          </ng-container>
+      
+        </owl-carousel-o>
+        
+
+
+
+    </div>
+
+    <div class="col-md-2">
+        <img height="200" class="w-100" src="../../assets/images/1678304313006-cover.jpeg">
+        <img height="200" class="w-100" src="../../assets/images/1678303526206-cover.jpeg">
+    </div>
+   
+    
+  </div>
+
+
+<input type="search" [(ngModel)]="inputvalue" class="w-50 form-control my-5 m-auto"  placeholder="search...">
+
+    <div class="row">
+        <div *ngFor="let product of allProducts.slice(0,12)| search: inputvalue " class="col-md-2 mb-4" >
+            <div  class="product">
+    
+             <div [routerLink]="['/productDetails' ,product._id]">
+                <img class="w-100" [src]="product.imageCover" >
+                
+                <span class="fa-sm text-main">{{product.category.name}}</span>
+                <h1 class="h5 fw-bold">{{product.title.split(" ").slice(0,2).join(" ")}}</h1>
+    
+                <div class="d-flex justify-content-between">
+                    <span>{{product.price | currency}}</span>
+    
+                    <span><i class="fa-solid fa-star rating-color"></i>{{product.ratingsAverage}}</span>
+    
+                </div>
+             </div>
+
+                  <button (click)="addToCartBTN(product._id)" class="btn bg-main d-block text-white w-100 mt-3">Add To Cart</button>
+    
+            </div>
+    
+        </div>
+    
+    </div>
+
+
+
+
+</div>

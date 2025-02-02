@@ -1,0 +1,39 @@
+<div class="container aaa" >
+
+    
+
+    <h1 class="text-center text-main h3"><span class="text-dark">Total Price :</span> {{totalPrice}}</h1>
+
+    <button [routerLink]="['/pay' , cartId ]" class="btn btn-success d-block mt-4 p-3 m-auto ">Check Out</button>
+
+    <div *ngFor="let item of cartItem " class="row my-3 align-items-center">
+
+        <div class="col-md-3">
+            <img class="w-100" [src]="item.product.imageCover" >
+        </div>
+        <div class="col-md-7">
+            <h1 class="h5">{{item.product.title}}</h1>
+            <span class="text-main fw-bold">{{item.product.category.name}}</span>
+            <div class="my-2">
+                <span class="mt-3 me-3">{{item.price}} EGP</span>
+                    <br>
+                <span><i class="mt-3 fa-solid fa-star rating-color"></i>{{item.product.ratingsAverage}}</span>
+
+            </div>
+
+           
+            <i (click)="removeItemBtn(item.product._id)" class="fa-solid fa-trash  text-danger cursor-pointer"></i>
+        </div>
+
+        <div class="col-md-2">
+            <i (click)="upDateQeBtn('plus', item.count , item.product._id)" class="fa-solid fa-square-plus h4 text-main cursor-pointer"></i>
+            {{item.count}}
+            <i  (click)="upDateQeBtn('mins' , item.count , item.product._id)" class="fa-solid fa-square-minus h4 text-main cursor-pointer"></i>
+        </div>
+
+    </div>
+
+
+
+
+</div>
