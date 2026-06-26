@@ -26,7 +26,7 @@ export class LoginComponent {
 
 
     email: new FormControl(null, [Validators.required, Validators.email]),
-    password: new FormControl(null, [Validators.required, Validators.pattern(/^[A-Z][a-z0-9]{6,20}$/)]),
+    password: new FormControl(null, [Validators.required,]),
 
 
   })
